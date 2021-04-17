@@ -1,0 +1,19 @@
+{
+  "cards": [
+    {
+      "url": "https://www.framer.com/api/",
+      "title": "Framer Motion",
+      "content": "Visit the documentation of Framer motion API"
+    },
+    {
+      "url": "https://nextjs.org/docs/",
+      "title": "Next.js",
+      "content": "Visit the documentation of Next.js"
+    },
+    {
+      "url": "https://github.com/pranjal2410/Learn-Next.js",
+      "title": "GitHub Repository",
+      "content": "Check out the github repository of this project"
+    }
+  ]
+}
