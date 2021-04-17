@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 const InfoCard = () => {
     const classes = useStyles();
     return (
-        <Paper elevation={5} component={Card} className={classes.paper}>
+        <Paper elevation={5} className={classes.paper}>
             <Typography variant='h4' component='h1' color='textPrimary'>
                 Hey everyone!
                 It's been a while since I started
