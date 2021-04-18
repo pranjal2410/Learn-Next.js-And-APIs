@@ -2,40 +2,12 @@ import Head from 'next/head'
 import InfoCard from "../components/InfoCard";
 import styles from '../styles/Home.module.css';
 import {ThemeContext} from "../components/themer";
-import {ThemeProvider, CssBaseline, AppBar, Toolbar, IconButton, makeStyles, Grid} from "@material-ui/core";
+import {ThemeProvider, CssBaseline, AppBar, Toolbar, IconButton, Grid} from "@material-ui/core";
 import {Brightness4, Brightness7} from "@material-ui/icons";
 import React, {useContext} from "react";
 import LinkCards from "../components/LinkCards";
 
-const useStyles = makeStyles((theme) => ({
-    card: {
-        margin: '1rem',
-        flexBasis: '45%',
-        padding: '1.5rem',
-        textAlign: 'left',
-        color: 'inherit',
-        textDecoration: 'none',
-        border: '1px solid #eaeaea',
-        borderRadius: '10px',
-        transition: 'color 0.15s ease, border-color 0.15s ease',
-        '&:hover, &:active, &:focus': {
-            color: theme.palette.type === 'light'?'#0070f3': '#00c0ff',
-            borderColor: theme.palette.type === 'light'?'#0070f3': '#00c0ff'
-        },
-        '& p': {
-            margin: 0,
-            fontSize: '1.25rem',
-            lineHeight: '1.5'
-        },
-        '& h3': {
-            margin: '0 0 1rem 0',
-            fontSize: '1.5rem'
-        }
-    }
-}))
-
 export default function Home() {
-    const classes = useStyles();
 
     React.useEffect(() => {
         const jssStyles = document.querySelector('#jss-server-side');
@@ -47,7 +19,7 @@ export default function Home() {
     const {theme, toggleTheme} = useContext(ThemeContext);
 
     return (
-    <Grid container justify="center" alignItems="center" direction="column" style={{ display: "flex"}}>
+    <Grid container alignItems="center" justify="center" direction="column" style={{ display: "flex"}}>
         <Head>
             <title>Next.js + Framer</title>
             <link rel="icon" href="/favicon.ico" />
@@ -55,21 +27,18 @@ export default function Home() {
 
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-                <AppBar position="fixed" color="transparent" style={{ boxShadow: "none"}}>
-                    <Toolbar>
-                        <div/>
-                        <IconButton edge="end" onClick={toggleTheme}>
-                            {theme.palette.type === 'light'?<Brightness4/> : <Brightness7/>}
-                        </IconButton>
+            <AppBar position="fixed" color="transparent" style={{ boxShadow: "none"}}>
+                <Toolbar>
+                    <div/>
+                    <IconButton edge="end" onClick={toggleTheme}>
+                        {theme.palette.type === 'light'?<Brightness4/> : <Brightness7/>}
+                    </IconButton>
                 </Toolbar>
             </AppBar>
-            <main className={styles.main}>
-                <h1 className={styles.title}>
-                    Welcome to a demo of Framer motion and <br/><a href="https://nextjs.org">Next.js</a>
-                </h1>
+            <Grid container justify="center" alignItems="center" direction="column" style={{ padding: "5rem 0", flex: "1"}}>
                 <InfoCard/>
                 <LinkCards/>
-            </main>
+            </Grid>
 
             <footer className={styles.footer}>
                 <a

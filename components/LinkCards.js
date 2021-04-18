@@ -20,10 +20,6 @@ const useStyles = makeStyles((theme) => ({
             fontSize: '1.25rem',
             lineHeight: '1.5'
         },
-        '& h3': {
-            margin: '0 0 1rem 0',
-            fontSize: '1.5rem'
-        }
     }
 }))
 
@@ -31,26 +27,24 @@ const LinkCards = () => {
     const classes = useStyles();
 
     return (
-        <>
+        <Grid container direction="row">
             {cards.map((card, i) => {
                 return (
-                    <Grid item key={i} xs>
-                        <Paper className={classes.card} elevation={5}>
-                            <a href={card.url}>
-                                <CardHeader
-                                    title={card.title}
-                                />
-                                <CardContent>
-                                    <Typography variant='h5' component='h1'>
-                                        {card.content}
-                                    </Typography>
-                                </CardContent>
-                            </a>
-                        </Paper>
+                    <Grid item key={i} xs={12} md={4} lg={4}>
+                        <a href={card.url}>
+                            <Paper className={classes.card} elevation={5}>
+                                <Typography variant='h6' component='h3' style={{ margin: '0 0 1rem 0', fontSize: '1.5rem'}}>
+                                    {card.title}
+                                </Typography>
+                                <Typography variant='body1' component='p'>
+                                    {card.content}
+                                </Typography>
+                            </Paper>
+                        </a>
                     </Grid>
                 )
             })}
-        </>
+        </Grid>
     )
 }
 
