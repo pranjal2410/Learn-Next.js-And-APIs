@@ -6,6 +6,7 @@ import {ThemeProvider, CssBaseline, AppBar, Toolbar, IconButton, Grid} from "@ma
 import {Brightness4, Brightness7} from "@material-ui/icons";
 import React, {useContext} from "react";
 import LinkCards from "../components/LinkCards";
+import AnimatedImages from "../components/Animate";
 
 export default function Home() {
 
@@ -37,6 +38,7 @@ export default function Home() {
             </AppBar>
             <Grid container justify="center" alignItems="center" direction="column" style={{ padding: "5rem 0", flex: "1"}}>
                 <InfoCard/>
+                <AnimatedImages/>
                 <LinkCards/>
             </Grid>
 
