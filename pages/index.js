@@ -2,11 +2,13 @@ import Head from 'next/head'
 import InfoCard from "../components/InfoCard";
 import styles from '../styles/Home.module.css';
 import {ThemeContext} from "../components/themer";
-import {ThemeProvider, CssBaseline, AppBar, Toolbar, IconButton, Grid} from "@material-ui/core";
+import {ThemeProvider, CssBaseline, AppBar, Toolbar, IconButton, Grid, Typography, Avatar, Tooltip} from "@material-ui/core";
 import {Brightness4, Brightness7} from "@material-ui/icons";
 import React, {useContext} from "react";
 import LinkCards from "../components/LinkCards";
 import AnimatedImages from "../components/Animate";
+import {techStack} from "../components/techStack.json";
+import simpleicons from "simple-icons";
 
 export default function Home() {
 
@@ -22,7 +24,7 @@ export default function Home() {
     return (
     <Grid container alignItems="center" justify="center" direction="column" style={{ display: "flex"}}>
         <Head>
-            <title>Next.js + Framer</title>
+            <title>Learning Next.js</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -30,7 +32,6 @@ export default function Home() {
             <CssBaseline/>
             <AppBar position="fixed" color="transparent" style={{ boxShadow: "none"}}>
                 <Toolbar>
-                    <div/>
                     <IconButton edge="end" onClick={toggleTheme}>
                         {theme.palette.type === 'light'?<Brightness4/> : <Brightness7/>}
                     </IconButton>
@@ -42,16 +43,29 @@ export default function Home() {
                 <LinkCards/>
             </Grid>
 
-            <footer className={styles.footer}>
-                <a
-                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Powered by{' '}
-                    <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-                </a>
-            </footer>
+            <Grid container className={styles.footer} justify="center" direction="column">
+                <Grid item>
+                    <Typography color="textPrimary" variant="h4" component="h1">
+                        Tech-Stack used
+                    </Typography>
+                </Grid>
+                <Grid item container spacing={1} direction="row">
+                    {techStack.map(({name, slug}, i) => {
+                        return (
+                            <Grid item key={i}>
+                                <Tooltip title={name}>
+                                    <Avatar variant="rounded" style={{ height: theme.spacing(7), width: theme.spacing(7), padding: theme.spacing(1.5), backgroundColor: `#${simpleicons.get(slug).hex}`}}>
+                                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <title>{name}</title>
+                                            <path d={simpleicons.get(slug).path} fill="white"/>
+                                        </svg>
+                                    </Avatar>
+                                </Tooltip>
+                            </Grid>
+                        )
+                    })}
+                </Grid>
+            </Grid>
         </ThemeProvider>
     </Grid>
     )

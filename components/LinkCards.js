@@ -27,7 +27,7 @@ const LinkCards = () => {
     const classes = useStyles();
 
     return (
-        <Grid container direction="row">
+        <Grid container direction="row" justify="center">
             {cards.map((card, i) => {
                 return (
                     <Grid item key={i} xs={12} md={4} lg={4}>

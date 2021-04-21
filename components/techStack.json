@@ -1,0 +1,24 @@
+{
+  "techStack": [
+    {
+      "name": "React.js",
+      "slug": "react"
+    },
+    {
+      "name": "Next.js",
+      "slug": "next-dot-js"
+    },
+    {
+      "name": "Material-UI",
+      "slug": "material-ui"
+    },
+    {
+      "name": "Framer",
+      "slug": "framer"
+    },
+    {
+      "name": "Vercel",
+      "slug": "vercel"
+    }
+  ]
+}
