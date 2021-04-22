@@ -8,7 +8,7 @@ import React, {useContext} from "react";
 import LinkCards from "../components/LinkCards";
 import AnimatedImages from "../components/Animate";
 import {techStack} from "../components/techStack.json";
-import simpleicons from "simple-icons";
+import simpleIcons from "simple-icons";
 
 export default function Home() {
 
@@ -43,29 +43,31 @@ export default function Home() {
                 <LinkCards/>
             </Grid>
 
-            <Grid container className={styles.footer} justify="center" direction="column">
-                <Grid item>
-                    <Typography color="textPrimary" variant="h4" component="h1">
-                        Tech-Stack used
-                    </Typography>
+            <footer className={styles.footer}>
+                <Grid container alignItems="center" direction="column">
+                    <Grid item>
+                        <Typography color="textPrimary" variant="h4" component="h1">
+                            Tech-Stack used
+                        </Typography>
+                    </Grid>
+                    <Grid item container direction="row" justify="center">
+                        {techStack.map(({name, slug}, i) => {
+                            return (
+                                <Grid item key={i}>
+                                    <Tooltip title={name}>
+                                        <Avatar variant="rounded" style={{ height: theme.spacing(6), width: theme.spacing(6), padding: theme.spacing(1.5), backgroundColor: `#${simpleIcons.get(slug).hex}`, margin: theme.spacing(0.5)}}>
+                                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <title>{name}</title>
+                                                <path d={simpleIcons.get(slug).path} fill="white"/>
+                                            </svg>
+                                        </Avatar>
+                                    </Tooltip>
+                                </Grid>
+                            )
+                        })}
+                    </Grid>
                 </Grid>
-                <Grid item container spacing={1} direction="row">
-                    {techStack.map(({name, slug}, i) => {
-                        return (
-                            <Grid item key={i}>
-                                <Tooltip title={name}>
-                                    <Avatar variant="rounded" style={{ height: theme.spacing(7), width: theme.spacing(7), padding: theme.spacing(1.5), backgroundColor: `#${simpleicons.get(slug).hex}`}}>
-                                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <title>{name}</title>
-                                            <path d={simpleicons.get(slug).path} fill="white"/>
-                                        </svg>
-                                    </Avatar>
-                                </Tooltip>
-                            </Grid>
-                        )
-                    })}
-                </Grid>
-            </Grid>
+            </footer>
         </ThemeProvider>
     </Grid>
     )
