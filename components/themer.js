@@ -6,13 +6,19 @@ const ThemeContext = createContext({theme: null, toggleTheme: null});
 const ThemeContextProvider = (props) => {
     const dark = createMuiTheme({
         palette: {
-            type: 'dark'
+            type: 'dark',
+            primary: {
+                main: '#00c0ff'
+            }
         }
     });
 
     const light = createMuiTheme({
         palette: {
-            type: 'light'
+            type: 'light',
+            primary: {
+                main: '#0070f3'
+            }
         }
     });
 

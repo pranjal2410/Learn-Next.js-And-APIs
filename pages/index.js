@@ -55,7 +55,7 @@ export default function Home() {
                             return (
                                 <Grid item key={i}>
                                     <Tooltip title={name}>
-                                        <Avatar variant="rounded" style={{ height: theme.spacing(6), width: theme.spacing(6), padding: theme.spacing(1.5), backgroundColor: `#${simpleIcons.get(slug).hex}`, margin: theme.spacing(0.5)}}>
+                                        <Avatar variant="rounded" style={{ height: theme.spacing(7), width: theme.spacing(7), padding: theme.spacing(1.5), backgroundColor: `#${simpleIcons.get(slug).hex}`, margin: theme.spacing(0.5)}}>
                                             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <title>{name}</title>
                                                 <path d={simpleIcons.get(slug).path} fill="white"/>
