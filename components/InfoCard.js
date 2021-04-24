@@ -4,8 +4,9 @@ import React from "react";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        padding: '5%',
+        padding: '3%',
         margin: '5%',
+        textAlign: 'center',
     },
     title: {
         margin: '0',
@@ -33,7 +34,7 @@ const InfoCard = () => {
             </Grid>
             <Grid item xs={12}>
                 <Paper elevation={5} className={classes.paper}>
-                    <Typography variant='h4' component='h1' color='textPrimary'>
+                    <Typography variant='h5' component='h1' color='textPrimary'>
                         Hey everyone!
                         It's been a while since I started
                         learning Framer motion.
@@ -41,10 +42,8 @@ const InfoCard = () => {
                         animations in my projects and I
                         found out that Framer motion gives the
                         best kind of animation you will ever
-                        need. Here you can click on the arrow
-                        buttons to navigate between images
-                        and click on the change animation
-                        button to change the type of animation.
+                        need. You can use the slider to change
+                        the image and see it roll.
                     </Typography>
                 </Paper>
             </Grid>
